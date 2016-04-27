@@ -133,7 +133,7 @@ class Fetcher(object):
                 result = yield self.http_fetch(url, task)
         except Exception as e:
             logger.exception(e)
-            result = self.handle_error(type, url, task, e)
+            result = self.handle_error(type, url, task,time.time(),e)
 
         callback(type, task, result)
         self.on_result(type, task, result)
